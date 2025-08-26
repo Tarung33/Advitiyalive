@@ -643,8 +643,8 @@ body {
 }
 
 .main-logo {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   background: var(--gradient-primary);
   border-radius: 50%;
   display: flex;
@@ -654,7 +654,7 @@ body {
   color: var(--bg-dark);
   position: relative;
   z-index: 2;
-  animation: logoFloat 6s ease-in-out infinite;
+  animation: logoFloat 8s ease-in-out infinite;
   box-shadow: var(--shadow-glow);
 }
 
@@ -677,14 +677,14 @@ body {
   opacity: 0.3;
 }
 
-.logo-ring-1 {
+/* .logo-ring-1 {
   width: 280px;
   height: 280px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: rotateClockwise 15s linear infinite;
-}
+} */
 
 .logo-ring-2 {
   width: 320px;
@@ -742,7 +742,7 @@ body {
 .dept-logo {
   width: 150px;
   height: 150px;
-  background: var(--gradient-tertiary);
+  background: var(--gradient-quaternary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -750,7 +750,7 @@ body {
   font-size: 3rem;
   color: var(--bg-dark);
   position: relative;
-  animation: deptLogoPulse 4s ease-in-out infinite;
+  animation: deptLogoPulse 8s ease-in-out infinite;
   box-shadow: var(--shadow-glow);
 }
 
@@ -1122,7 +1122,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: transparent;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1133,6 +1133,19 @@ body {
 
 .member-avatar:hover .member-overlay {
   opacity: 1;
+}
+
+.member-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.member-avatar:hover .member-avatar-img {
+  transform: scale(1.1);
+  filter: brightness(0.8);
 }
 
 .social-links {
@@ -1586,8 +1599,8 @@ body {
   }
   
   .main-logo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     font-size: 3rem;
   }
   
@@ -1677,12 +1690,11 @@ body {
   }
   
   .main-logo {
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 180px;
     font-size: 2.5rem;
   }
   
-  .logo-ring-1 { width: 180px; height: 180px; }
   .logo-ring-2 { width: 200px; height: 200px; }
   .logo-ring-3 { width: 220px; height: 220px; }
   
@@ -1691,8 +1703,8 @@ body {
   }
   
   .dept-logo {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     font-size: 2rem;
   }
   
@@ -1708,6 +1720,98 @@ body {
   .contact-form-container {
     padding: 25px;
   }
+}
+
+/* Hide mobile logo on desktop */
+.mobile-logo {
+  display: none;
+}
+
+/* For tablets and below - show mobile logo, hide desktop logo */
+@media (max-width: 1024px) {
+  .hero-content > .hero-visual {
+    display: none;
+  }
+  
+  .mobile-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .mobile-logo .logo-showcase {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mobile-logo .main-logo {
+    position: relative;
+    z-index: 3;
+  }
+  
+  .mobile-logo .logo-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .mobile-logo .logo-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    animation: rotate 20s linear infinite;
+  }
+  
+  .mobile-logo .logo-ring-2 {
+    animation-duration: 15s;
+    animation-direction: reverse;
+  }
+  
+  .mobile-logo .logo-ring-3 {
+    animation-duration: 25s;
+  }
+}
+
+/* For mobile - adjust logo size */
+@media (max-width: 768px) {
+  .hero-visual {
+    margin: 15px 0;
+  }
+  
+  .logo-showcase {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .main-logo {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .logo-ring-2 { width: 220px; height: 220px; }
+  .logo-ring-3 { width: 240px; height: 240px; }
+}
+
+@media (max-width: 480px) {
+  .logo-showcase {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .main-logo {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .logo-ring-2 { width: 200px; height: 200px; }
+  .logo-ring-3 { width: 220px; height: 220px; }
 }
 
 /* Animation Classes */
